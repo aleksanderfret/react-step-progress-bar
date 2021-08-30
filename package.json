@@ -1,0 +1,20 @@
+{
+  "name": "react-step-progress-bar",
+  "version": "0.0.1",
+  "private": false,
+  "main": "index.js",
+  "author": {
+    "name": "Aleksander Fret",
+    "email": "olekfret80@gmail.com",
+    "url": "https://github.com/aleksanderfret/"
+  },
+  "license": "ISC",
+  "homepage": "https://github.com/aleksanderfret/react-step-progress-bar#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aleksanderfret/react-step-progress-bar"
+  },
+  "bugs": {
+    "url": "https://github.com/aleksanderfret/react-step-progress-bar/issues"
+  }
+}
