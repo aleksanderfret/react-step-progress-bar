@@ -16,5 +16,86 @@
   },
   "bugs": {
     "url": "https://github.com/aleksanderfret/react-step-progress-bar/issues"
+  },
+  "scripts": {
+    "build": "webpack --progress --config ./webpack.config.prod.ts",
+    "check": "npm-run-all lint format stylelint test compile clean",
+    "compile": "tsc -p ./tsconfig.prod.json",
+    "clean": "npx ts-node -T scripts/clean.ts",
+    "format": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "eslint . --ext \".js,.jsx,.ts,.tsx\"",
+    "lint:fix": "eslint ./ --ext \".js,.jsx,.ts,.tsx\" --max-warnings=0 --fix",
+    "prepare": "husky install",
+    "prepare-commit-msg": "npx ts-node -T scripts/prepare-commit-msg.ts",
+    "pre-commit": "lint-staged && npm run test",
+    "pre-push": "npm-run-all check test",
+    "stylelint": "stylelint src/**/*.scss --cache",
+    "stylelint:fix": "stylelint src/**/*.scss --cache --fix",
+    "start": "webpack serve --mode development --config ./webpack.config.dev.ts",
+    "test": "echo 'No tests Found!'"
+  },
+  "dependencies": {
+    "clsx": "1.1.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "ts-polyfill": "3.8.2",
+    "tslib": "2.3.1"
+  },
+  "devDependencies": {
+    "@types/mini-css-extract-plugin": "2.2.0",
+    "@types/node": "16.7.6",
+    "@types/react": "17.0.19",
+    "@types/react-dom": "17.0.9",
+    "@types/terser-webpack-plugin": "5.0.4",
+    "@types/webpack-dev-server": "4.0.3",
+    "@typescript-eslint/eslint-plugin": "4.29.3",
+    "@typescript-eslint/parser": "4.29.3",
+    "autoprefixer": "10.3.3",
+    "css-loader": "6.2.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-import-resolver-webpack": "0.13.1",
+    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "3.4.1",
+    "eslint-plugin-react": "7.25.1",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "html-webpack-plugin": "5.3.2",
+    "husky": "7.0.2",
+    "lint-staged": "11.1.2",
+    "mini-css-extract-plugin": "2.2.0",
+    "npm-run-all": "4.1.5",
+    "postcss": "8.3.6",
+    "postcss-loader": "6.1.1",
+    "prettier": "2.3.2",
+    "sass": "1.38.2",
+    "sass-loader": "12.1.0",
+    "style-loader": "3.2.1",
+    "stylelint": "13.13.1",
+    "stylelint-config-prettier": "8.0.2",
+    "stylelint-config-recommended": "5.0.0",
+    "stylelint-config-standard": "22.0.0",
+    "stylelint-scss": "3.20.1",
+    "terser-webpack-plugin": "5.1.4",
+    "ts-loader": "9.2.5",
+    "ts-node": "10.2.1",
+    "tsconfig-paths": "3.11.0",
+    "typescript": "4.4.2",
+    "webpack": "5.51.1",
+    "webpack-cli": "4.8.0",
+    "webpack-dev-server": "4.0.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,scss,css,md}": [
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint -c .eslintrc --fix",
+      "echo test"
+    ],
+    "**/*.scss": [
+      "stylelint --syntax scss"
+    ]
   }
 }
