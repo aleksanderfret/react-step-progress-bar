@@ -1,0 +1,12 @@
+@use 'partials' as *;
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: white;
+
+  @include breakpoint($screenM) {
+    width: 80%;
+  }
+}

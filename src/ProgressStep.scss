@@ -1,0 +1,24 @@
+@use 'partials' as *;
+
+.react-progress-step {
+  @include const-size(48px);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  border-radius: 50%;
+
+  &--done {
+    background-color: lightgreen;
+  }
+
+  &--active {
+    background-color: royalblue;
+  }
+
+  &-text {
+    position: absolute;
+  }
+}
